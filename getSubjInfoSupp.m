@@ -16,13 +16,28 @@ subject=[]; %clear out any cached subject information
 
 %determine subject number
 %if .mat file exists for this subject, then likely a reload and continue
-subject.subj_id = NaN;
-while isnan(subject.subj_id)
-    idInput = str2double(input('Enter the subject ID number: ','s')); %force to be numeric
-    if ~isnan(idInput)
-        subject.subj_id = idInput;
+match = 0;
+while ~match
+    subject.subj_id = NaN;
+    while isnan(subject.subj_id)
+        idInput = str2double(input('Enter the subject ID number: ','s')); %force to be numeric
+        if ~isnan(idInput)
+            subject.subj_id = idInput;
+        else
+            fprintf('\n  Subject id must be a number\n\n');
+        end
+    end
+    id1 = nan;
+    while isnan(id1)
+        id1 = str2double(input('Please enter the subject ID number again:   ','s'));
+        if isnan(id1)
+            fprintf('\n  Subject id must be a number\n\n');
+        end
+    end
+    if id1==subject.subj_id
+        match=1;
     else
-        fprintf('\n  Subject id must be a number\n\n');
+        warning('Subject IDs must match!');
     end
 end
 
@@ -195,7 +210,7 @@ elseif strcmpi(taskname, 'fMRIEmoClockSupplement')
     if subject.session==1 && ~exist(txtfile,'file')
         display_warning_message(subject)
         xlrange = strcat(xlrange(1:4),num2str(last_data_point+1)); %New range
-        xlswrite(fname,txt,xlrange);
+        xlswrite(fname,txt,xlrange); % 2021-07-23 AndyP, doesn't work on newer versions of Matlab
     end
     
     

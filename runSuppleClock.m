@@ -55,7 +55,7 @@ function runSuppleClock
 %window pointer, slack, and subject structure are global across functions
 global w slack subject facenumC blockC emotionC rewardC ITIC experiment totalBlocks trialsPerBlock current_contingency reversal_flag...
     reverse_count;
-
+global inc ev F_Mag F_Freq
 
 %screenResolution=[640 480]; %basic VGA
 %screenResolution=[1600 1200];
