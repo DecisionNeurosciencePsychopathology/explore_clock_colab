@@ -118,6 +118,10 @@ while isnan(subject.session)
     end
 end
 
+subject.dobeh = '';
+while isempty(subject.dobeh)
+    subject.dobeh = input('Is this a behavior session?   ','s');
+end
 
 %Grab what the file names should be
 filename = ['subjects/' taskname '_' num2str(subject.subj_id) '_' num2str(subject.session) '_tc'];

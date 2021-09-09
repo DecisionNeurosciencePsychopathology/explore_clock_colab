@@ -1,0 +1,48 @@
+PTB-INFO: ==============================================================================================================================
+PTB-INFO: WINDOWS DWM DESKTOP COMPOSITOR IS ACTIVE. On this Windows-10 or later system, Psychtoolbox can no longer reliably detect if
+PTB-INFO: this will cause trouble for timing and integrity of visual stimuli or not. You might be just fine, or you could be in trouble.
+PTB-INFO: Use external measurement equipment and independent procedures to verify reliability of timing if you care about proper timing.
+PTB-INFO: ==============================================================================================================================
+
+
+PTB-ERROR: Screen('Flip'); beamposition timestamping computed an *impossible stimulus onset value* of 1373738.343715 secs, which would indicate that
+PTB-ERROR: stimulus onset happened *before* it was actually requested! (Earliest theoretically possible 1373738.356404 secs).
+
+PTB-ERROR: Some more diagnostic values (only for experts): rawTimestamp = 1373738.360141, scanline = 1063
+PTB-ERROR: Some more diagnostic values (only for experts): line_pre_swaprequest = 807, line_post_swaprequest = 960, time_post_swaprequest = 1373738.358637
+PTB-ERROR: Some more diagnostic values (only for experts): preflip_vblcount = 0, preflip_vbltimestamp = 1373738.343937
+PTB-ERROR: Some more diagnostic values (only for experts): postflip_vblcount = 0, postflip_vbltimestamp = -1.000000, vbltimestampquery_retrycount = 0
+
+PTB-ERROR: This error can be due to either of the following causes:
+PTB-ERROR: Very unlikely: Something is broken in your systems beamposition timestamping. I've disabled high precision
+PTB-ERROR: timestamping for now. Returned timestamps will be less robust and accurate.
+
+PTB-ERROR: The most likely cause would be that Synchronization of stimulus onset (buffer swap) to the
+PTB-ERROR: vertical blank interval VBL is not working properly, or swap completion signalling to PTB is broken.
+PTB-ERROR: Please run the script PerceptualVBLSyncTest to check this. With non-working sync to VBL, all stimulus timing
+PTB-ERROR: is futile. Also run OSXCompositorIdiocyTest on macOS. Also read 'help SyncTrouble' !
+pulse flip: 1373744.72602
+fix flip: 1373744.77139
+pretrialLength was: 7.99629
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
+Quit on trial 1
