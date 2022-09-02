@@ -1,0 +1,44 @@
+PTB-WARNING: ==============================================================================================================================
+PTB-WARNING: WINDOWS DWM DESKTOP COMPOSITOR IS ACTIVE! ALL FLIP STIMULUS ONSET TIMESTAMPS WILL BE VERY LIKELY UNRELIABLE AND LESS ACCURATE!
+PTB-WARNING: STIMULUS ONSET TIMING WILL BE UNRELIABLE AS WELL, AND GRAPHICS PERFORMANCE MAY BE SEVERELY REDUCED! STIMULUS IMAGES MAY NOT
+PTB-WARNING: SHOW UP AT ALL! DO NOT USE THIS MODE FOR RUNNING REAL EXPERIMENT SESSIONS WITH ANY REQUIREMENTS FOR ACCURATE TIMING!
+PTB-WARNING: ==============================================================================================================================
+
+WARNING: Couldn't compute a reliable estimate of monitor refresh interval! Trouble with VBL syncing?!?
+
+
+----- ! PTB - ERROR: SYNCHRONIZATION FAILURE ! -----
+
+One or more internal checks (see Warnings above) indicate that synchronization
+of Psychtoolbox to the vertical retrace (VBL) is not working on your setup.
+
+This will seriously impair proper stimulus presentation and stimulus presentation timing!
+Please read 'help SyncTrouble' for information about how to solve or work-around the problem.
+You can force Psychtoolbox to continue, despite the severe problems, by adding the command
+Screen('Preference', 'SkipSyncTests', 1); at the top of your script, if you really know what you are doing.
+
+
+
+
+PTB-ERROR: Screen('Flip'); beamposition timestamping computed an *impossible stimulus onset value* of 1373462.441923 secs, which would indicate that
+PTB-ERROR: stimulus onset happened *before* it was actually requested! (Earliest theoretically possible 1373462.447931 secs).
+
+PTB-ERROR: Some more diagnostic values (only for experts): rawTimestamp = 1373462.449540, scanline = 494
+PTB-ERROR: Some more diagnostic values (only for experts): line_pre_swaprequest = 384, line_post_swaprequest = 461, time_post_swaprequest = 1373462.449058
+PTB-ERROR: Some more diagnostic values (only for experts): preflip_vblcount = 0, preflip_vbltimestamp = 1373462.442017
+PTB-ERROR: Some more diagnostic values (only for experts): postflip_vblcount = 0, postflip_vbltimestamp = -1.000000, vbltimestampquery_retrycount = 0
+
+PTB-ERROR: This error can be due to either of the following causes:
+PTB-ERROR: Very unlikely: Something is broken in your systems beamposition timestamping. I've disabled high precision
+PTB-ERROR: timestamping for now. Returned timestamps will be less robust and accurate.
+
+PTB-ERROR: The most likely cause would be that Synchronization of stimulus onset (buffer swap) to the
+PTB-ERROR: vertical blank interval VBL is not working properly, or swap completion signalling to PTB is broken.
+PTB-ERROR: Please run the script PerceptualVBLSyncTest to check this. With non-working sync to VBL, all stimulus timing
+PTB-ERROR: is futile. Also run OSXCompositorIdiocyTest on macOS. Also read 'help SyncTrouble' !
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runSuppleClock/waitForResponse', 'C:\Users\DNPL\Documents\GitHub\explore_clock\runSuppleClock.m', 842)" style="font-weight:bold">runSuppleClock/waitForResponse</a> (<a href="matlab: opentoline('C:\Users\DNPL\Documents\GitHub\explore_clock\runSuppleClock.m',842,0)">line 842</a>)
+Unrecognized function or variable 'i'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('runSuppleClock', 'C:\Users\DNPL\Documents\GitHub\explore_clock\runSuppleClock.m', 345)" style="font-weight:bold">runSuppleClock</a> (<a href="matlab: opentoline('C:\Users\DNPL\Documents\GitHub\explore_clock\runSuppleClock.m',345,0)">line 345</a>)
+            waitForResponse;
+} 
