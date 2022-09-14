@@ -24,7 +24,6 @@ require(data.table)
 setwd('/bgfs/adombrovski/DNPL_DataMesh/Data/bea_demo/Medusa')
 
 require("devtools")
-#devtools::install_github("UNCDEPENdLab/fmri.pipeline", force=T,auth_token="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")
 library(fmri.pipeline)
 source('/bgfs/adombrovski/DNPL_DataMesh/Data/bea_demo/Medusa/fmri.pipeline/R/spm_funcs.R')
 
