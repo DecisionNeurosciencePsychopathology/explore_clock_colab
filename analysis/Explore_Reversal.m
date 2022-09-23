@@ -2,11 +2,25 @@
 % PETH of RT around trial 1 'reversals' from IEV->DEV or DEV->IEV
 % separately
 
+dataset = 'BSOC';
+
 uS = unique(df.id);
 nS = length(uS);
 
-uR = unique(df.run_number);
-nR = length(unique(df.run_number));
+uR = unique(df.scanner_run);
+nR = length(unique(df.scanner_run));
+
+
+if strcmp(dataset,'BSOC')
+
+trial0 = nan(height(df),1);
+for iS=1:nS
+    for iR=1:nR
+        idx = df.id==uS(iS) & df.scanner_run==iR;
+        trial0(idx) = 1:sum(idx);
+    end
+end
+
 
 I2D = nan(25+25+1,nS*nR);
 D2I = nan(25+25+1,nS*nR);
@@ -15,11 +29,11 @@ I2I = nan(25+25+1,nS*nR);
 iA = 1; iB = 1; iC = 1; iD = 1;
 for iS=1:nS
     for iR=1:nR
-        idx = df.id==uS(iS) & df.run_number==iR;
+        idx = df.id==uS(iS) & df.scanner_run==iR;
         rt = df.rt_csv(idx);
         rewFunc = string(df.rewFunc(idx));
         run_trial = df.run_trial(idx);
-        trial = df.trial(idx);
+        trial = trial0(idx);
         
         firstT = find(run_trial==1 & trial~=1);
         
@@ -43,6 +57,9 @@ for iS=1:nS
             end
         end
     end
+end
+
+elseif strcmp(dataset,'EXP')
 end
 
 F = figure(1); clf;
