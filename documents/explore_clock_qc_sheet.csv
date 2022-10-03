@@ -1,0 +1,148 @@
+"","PID","Pass?","Sensitivity Analysis","Notes"
+"1","sub-202200","Pass","Include",NA
+"2","sub-202278","Pass","Include",NA
+"3","sub-202735","Pass","Include",NA
+"4","sub-204015","Pass","Include",NA
+"5","sub-207224","Does not pass","Exclude","raw_QA issue in clock tasks 1 and 2; severe wrapping"
+"6","sub-208572","Pass","Include",NA
+"7","sub-210100","Pass","Include",NA
+"8","sub-210290","Pass","Include",NA
+"9","sub-210374","Does not pass","Exclude","raw_QA issue in clock tasks 1 and 2; large severe artifact in the sagittal scan"
+"10","sub-210701","Does not pass","Exclude","raw_QA issue in clock tasks 1 and 2; artifact in the sagittal scan and severe wrapping that interferes with the brain"
+"11","sub-211038","Pass","Include",NA
+"12","sub-211101","Does not pass","Exclude","functional clock task 2 does not exist"
+"13","sub-211253","Pass","Exclude","spatial normalization issue for anatomical data: x=0 cut off a lot of the brain"
+"14","sub-211274","Pass","Include",NA
+"15","sub-211669","Pass","Include",NA
+"16","sub-212019","Pass","Include",NA
+"17","sub-212020","Pass","Include",NA
+"18","sub-212794","Pass","Include",NA
+"19","sub-212856","Pass","Include",NA
+"20","sub-212857","Pass","Include",NA
+"21","sub-213163","Does not pass","Exclude","functional clock task 2 does not exist"
+"22","sub-213704","Pass","Include",NA
+"23","sub-213708","Does not pass","Exclude","raw_QA in clock tasks 1 and 2; severe artifact in the frontal lobe of the sagittal scan at voxel 31"
+"24","sub-215211","Pass","Include",NA
+"25","sub-215537","Pass","Include",NA
+"26","sub-215622","Pass","Include",NA
+"27","sub-216011","Pass","Include",NA
+"28","sub-216028","Pass","Include",NA
+"29","sub-216806","Does not pass","Exclude","raw_QA issue for clock tasks 1 and 2: black hole in raw_QA"
+"30","sub-217008","Pass","Include",NA
+"31","sub-217173","Pass","Include",NA
+"32","sub-218219","Pass","Include",NA
+"33","sub-218572","Pass","Include",NA
+"34","sub-219044","Pass","Include",NA
+"35","sub-219089","Pass","Include",NA
+"36","sub-219392","Does not pass","Exclude","issues for clock run 1 and 2: misalignment of functional/structural scans, and the field map little messed up/blurry and the SDC looks a little strange (think it's to account for the brain being slightly tilted)"
+"37","sub-219658","Pass","Include",NA
+"38","sub-219676","Pass","Include",NA
+"39","sub-219944","Pass","Include",NA
+"40","sub-219949","Does not pass","Exclude","functional clock task 2 does not exist"
+"41","sub-219954","Pass","Include",NA
+"42","sub-220024","Does not pass","Exclude","AROMA_QA in clock tasks 1 and 2 is incredibly noisy, high FD max, and most of the scans classified as brain signal look like noise"
+"43","sub-220043","Pass","Include",NA
+"44","sub-220104","Pass","Include",NA
+"45","sub-220152","Pass","Include",NA
+"46","sub-220184","Pass","Include",NA
+"47","sub-220186",NA,"Include",NA
+"48","sub-220244","Pass","Include",NA
+"49","sub-220299","Pass","Include",NA
+"50","sub-220513","Pass","Include",NA
+"51","sub-220523","Pass","Include",NA
+"52","sub-220531","Pass","Include",NA
+"53","sub-220566","Pass","Include",NA
+"54","sub-220597","Pass","Include",NA
+"55","sub-220649","Pass","Include",NA
+"56","sub-220740","Pass","Include",NA
+"57","sub-220758","Pass","Include",NA
+"58","sub-220796","Pass","Include",NA
+"59","sub-220865","Pass","Include","slight wrapping but not a problem"
+"60","sub-220889","Pass","Include",NA
+"61","sub-220913","Pass","Include",NA
+"62","sub-220914","Pass","Include",NA
+"63","sub-220927","Pass","Include",NA
+"64","sub-220947","Pass","Include",NA
+"65","sub-220963","Pass","Include",NA
+"66","sub-220976","Pass","Include",NA
+"67","sub-220989","Pass","Include",NA
+"68","sub-221018","Pass","Include",NA
+"69","sub-221036","Pass","Include",NA
+"70","sub-221050","Pass","Include",NA
+"71","sub-221080","Pass","Include",NA
+"72","sub-221085","Pass","Include",NA
+"73","sub-221181","Pass","Include",NA
+"74","sub-221183","Pass","Include",NA
+"75","sub-221206","Pass","Include",NA
+"76","sub-221212","Pass","Include",NA
+"77","sub-221228","Pass","Include",NA
+"78","sub-221229","Pass","Include",NA
+"79","sub-221256","Pass","Include",NA
+"80","sub-221261","Pass","Include",NA
+"81","sub-221262","Pass","Include",NA
+"82","sub-221273","Pass","Include",NA
+"83","sub-221292","Pass","Include",NA
+"84","sub-221298","Pass","Include",NA
+"85","sub-221448","Pass","Include",NA
+"86","sub-221610","Pass","Include",NA
+"87","sub-221637","Pass","Include",NA
+"88","sub-221680","Pass","Include",NA
+"89","sub-221698","Does not pass","Exclude","raw_QA issue for anatomical data: abnormally large ventricles, usually seen with Alzheimer's patients >> needs to be double checked/checked for age"
+"90","sub-221715","Pass","Include",NA
+"91","sub-221910","Pass","Include",NA
+"92","sub-221916","Pass","Include",NA
+"93","sub-222067","Pass","Include",NA
+"94","sub-222093","Pass","Include",NA
+"95","sub-222112","Pass","Include",NA
+"96","sub-35780","Pass","Include",NA
+"97","sub-37542","Pass","Include",NA
+"98","sub-431100","Pass","Exclude","spatial_normalization issue for anatomical data; cut off too much at x=0"
+"99","sub-431106","Pass","Include",NA
+"100","sub-431224","Pass","Include",NA
+"101","sub-431230","Pass","Include",NA
+"102","sub-440021","Pass","Include",NA
+"103","sub-440024","Pass","Include",NA
+"104","sub-440042","Pass","Include",NA
+"105","sub-440066","Pass","Include",NA
+"106","sub-440072","Pass","Include",NA
+"107","sub-440120","Pass","Include",NA
+"108","sub-440138","Pass","Include",NA
+"109","sub-440149","Does not pass","Exclude","raw_QA issue in clock run 1; severe wrapping. Also issues in structural data: abnormal amount of CSF in Raw_QA & spatial normalization cut off at x=0 for anatomical data"
+"110","sub-440165","Pass","Include",NA
+"111","sub-440166","Pass","Include",NA
+"112","sub-440181","Pass","Include",NA
+"113","sub-440182","Pass","Include",NA
+"114","sub-440184","Pass","Include",NA
+"115","sub-440196","Pass","Include",NA
+"116","sub-440199","Pass","Include",NA
+"117","sub-440200","Pass","Include",NA
+"118","sub-440214","Pass","Include",NA
+"119","sub-440215","Pass","Include",NA
+"120","sub-440216","Pass","Include",NA
+"121","sub-440237","Pass","Include",NA
+"122","sub-440243","Pass","Exclude","large separation between left and right hemispheres of the brain >> needs sensitivity analyse to determine whether data inclusion in analysis would impact the data significantly or not"
+"123","sub-440247","Pass","Include",NA
+"124","sub-440254","Pass","Exclude","spatial_normalization issue for anatomical data; spatial normalization cut off in midsaggital view, and gap between hemispheres is quite wide even after preprocessing (especially evident in y=28, z=38, and y=50)"
+"125","sub-440263","Pass","Exclude","spatial_normalization issue for anatomical data; spatial normalization cut off in midsaggital view and y=-40. Gap between hemispheres is substantial (y=5, y=27, z=29, z=38)"
+"126","sub-440266","Pass","Include",NA
+"127","sub-440292","Pass","Include",NA
+"128","sub-440295","Pass","Include",NA
+"129","sub-440301","Pass","Include",NA
+"130","sub-440307","Pass","Include",NA
+"131","sub-440311","Does not pass","Exclude","wrapping in Raw_QA for clock runs 1 and 2"
+"132","sub-440323","Pass","Include",NA
+"133","sub-440329","Pass","Include",NA
+"134","sub-440330","Pass","Include",NA
+"135","sub-440335","Pass","Include",NA
+"136","sub-440336","Does not pass","Exclude","severe wrapping in clock runs 1 and 2"
+"137","sub-440337","Pass","Include",NA
+"138","sub-440340","Pass","Include",NA
+"139","sub-440355","Pass","Include",NA
+"140","sub-440359","Pass","Include",NA
+"141","sub-440361","Pass","Include",NA
+"142","sub-440368","Pass","Include",NA
+"143","sub-440392","Pass","Exclude","mild wrapping--HE doesn't think is too severe but wants to confirm with MNH"
+"144","sub-440393","Pass","Include",NA
+"145","sub-440423","Pass","Include",NA
+"146","sub-222121","Pass","Include",NA
+"147","sub-216845","Does not pass","Exclude","The large amount of CSF in the mPFC was concerning in the raw_QA of the functional clock runs, though not inherently bad since it does seem like it was just the result of a large gap between the two brain hemispheres. However, because the artifact appeared in various parts of the preprocessed html file (e.g., the brain mask) it seemed to be pretty severe. After taking a look at spatial normalization, the gap between the brain hemispheres was pretty substantial! This is one I would reference in the future if you have any questions about whether there's too much CSF or if the gap between brain regions is too wide--this one is severe enough to not pass in my opinion."
