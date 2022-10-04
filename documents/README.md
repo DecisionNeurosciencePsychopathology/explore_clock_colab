@@ -1,29 +1,29 @@
 ```
 PASS QC
 
-registration_group    n
+group     n     excluded
 -------------------------
-ATT-HL                12
-ATT-LL                20
-DEP                   18
-DNA                   17
-HC                    40
-IDE                   24
+ATT-HL    12    1
+ATT-LL    20    3
+DEP       18    2
+DNA       17    1
+HC        39    5
+IDE       24    4
 -------------------------
-TOTAL                131
+TOTAL     130   16
 
 
 
 SENSITIVITY ANALYSIS
 
-registration_group    n
+group     n     excluded
 -------------------------
-ATT-HL                12
-ATT-LL                20
-DEP                   18
-DNA                   14
-HC                    38
-IDE                   23
+ATT-HL    12    1
+ATT-LL    20    3
+DEP       18    2
+DNA       14    4
+HC        37    7
+IDE       23    5
 -------------------------
-TOTAL                125
+TOTAL     124   22
 ```
