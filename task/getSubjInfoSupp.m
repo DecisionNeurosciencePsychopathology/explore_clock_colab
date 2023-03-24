@@ -214,7 +214,7 @@ elseif strcmpi(taskname, 'fMRIEmoClockSupplement')
     if subject.session==1 && ~exist(txtfile,'file')
         display_warning_message(subject)
         xlrange = strcat(xlrange(1:4),num2str(last_data_point+1)); %New range
-        xlswrite(fname,txt,xlrange); % 2021-07-23 AndyP, doesn't work on newer versions of Matlab
+        %(fname,txt,xlrange); % 2021-07-23 AndyP, doesn't work on newer versions of Matlab
     end
     
     
