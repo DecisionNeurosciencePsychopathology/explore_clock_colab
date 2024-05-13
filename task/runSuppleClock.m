@@ -75,7 +75,7 @@ end
 %Pix_SS = get(0,'screensize');
 %screenResolution=Pix_SS(3:end);
 
-textSize=24; %font size for intructions etc.
+textSize=64; %font size for intructions etc.
 
 %buyer beware: do not uncomment this for production use
 %Screen('Preference', 'SkipSyncTests', 1);
@@ -114,6 +114,8 @@ max_trial_limit = 40; %maximum trials until reversal
 
 [order, runTotals, filename] = getSubjInfoSupp('fMRIEmoClockSupplement');
 
+
+subject.version = '2024-05-13-larger-text';
 
 if subject.dobeh
     screenResolution =[1920 1080]; % DNPL Behavioral Laptop
@@ -922,7 +924,7 @@ sca
         drawRect;
         %Screen('DrawText', w, sprintf('Your Score is: %d\nrecorded rxt: %d', score, rspnstime));
         %DrawFormattedText(w, sprintf('Total score is: %d\nincrease is: %d\nradnom vs Freq (ev): %f v %f (%f)\nrecorded rxt: %d', score,F_Mag,rd,F_Freq,ev, RT),'center','center',black);
-        Screen('TextSize', w, textSize);
+        Screen('TextSize', w, 96);
         fprintf('RT is: %.2f\n', RTms);
         if keyPressed == 0
             %DrawFormattedText(w, sprintf(['You earned 0 points because you did not respond in time.\n\n' ...
