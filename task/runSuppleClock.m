@@ -58,7 +58,7 @@ global w slack subject facenumC blockC emotionC rewardC ITIC experiment totalBlo
 global inc ev F_Mag F_Freq
 
 
-debug = 1;
+debug = 0;
 if debug
     PsychDebugWindowConfiguration();
     ShowCursor;
