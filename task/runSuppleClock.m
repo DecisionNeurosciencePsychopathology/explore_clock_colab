@@ -69,13 +69,13 @@ end
 %screenResolution=[1680 1050]; %mac laptop
 %screenResolution=[1280 1024]; %prac comp
 %screenResolution=[1920 1080]; %bellefield dell
-%screenResolution=[1024 768]; % Prisma 2
+screenResolution=[1024 768]; % Prisma 2
 
 %Try this out hoping it works!
 %Pix_SS = get(0,'screensize');
 %screenResolution=Pix_SS(3:end);
 
-textSize=64; %font size for intructions etc.
+textSize=36; %font size for intructions etc.
 
 %buyer beware: do not uncomment this for production use
 %Screen('Preference', 'SkipSyncTests', 1);
@@ -117,8 +117,8 @@ max_trial_limit = 40; %maximum trials until reversal
 
 subject.version = '2024-05-13-larger-text';
 
-if subject.dobeh
-    screenResolution =[1920 1080]; % DNPL Behavioral Laptop
+if strcmp(subject.dobeh,'y')
+    %screenResolution =[1920 1080]; % DNPL Behavioral Laptop
 end
 
 %load ITI distribution for all runs.
@@ -135,7 +135,7 @@ if length(subject.runITIs) ~= length(experiment{facenumC})/2
     len_diff = (length(experiment{facenumC})/2) - length(subject.runITIs);
     ITIs_to_add = randi([0,11], [length(subject.runITI_indices), len_diff]);
     ITIs_to_add(:,end+1) = 12; %Look as itimat in fMRIOptITI's
-    if subject.dobeh
+    if subject.dobeh % 2024-08-26 AndyP decided not to update this right now
         subject.runITIs = [subject.runITIs(:,1:end-1) ITIs_to_add]/10;
     else
         subject.runITIs = [subject.runITIs(:,1:end-1) ITIs_to_add];
@@ -369,12 +369,8 @@ try
     
     
     %% BEGIN TASK AFTER SYNC OBTAINED FROM SCANNER
-    if ~subject.dobeh
-        [scannerStart, priorFlip] = scannerPulseSync;
-         fprintf('pulse flip: %.5f\n', priorFlip);
-    else
-        scannerStart = Screen('Flip', w);
-    end
+    [scannerStart, priorFlip] = scannerPulseSync;
+    fprintf('pulse flip: %.5f\n', priorFlip);
     % Grab the time right after the scanner syncs
     checktime=GetSecs();
     
@@ -669,7 +665,7 @@ try
         if(sum(runTotals) > 2000), earnedmsg='\n\nYou earned a $25 bonus !'; end
     end
     
-    msgAndCloseEverything(['Your final score is ', num2str(sum(runTotals)) ,' points', earnedmsg, '\n\nThanks for playing!']);
+    msgAndCloseEverything(['Your final score is \n', num2str(sum(runTotals)) ,' points', earnedmsg, '\nThanks for playing!']);
     return
     
 catch
@@ -708,7 +704,7 @@ sca
     end
 
     function msgAndCloseEverything(message)
-        DrawFormattedText(w, [message '\n\n push any key but esc to quit'],...
+        DrawFormattedText(w, [message '\n push any key but esc\n to quit'],...
             'center','center',black);
         fprintf('%s\n',message)
         Screen('Flip', w);
@@ -768,11 +764,7 @@ sca
         keyPressed=0;
         
         %listen to 1-5 (right button glove)
-        if subject.dobeh
-            validKeys = [KbName('SPACE')];
-        else
-            validKeys=[ KbName('1!') KbName('2@') KbName('3#') KbName('4$') KbName('5%') ];
-        end
+        validKeys=[ KbName('1!') KbName('2@') KbName('3#') KbName('4$') KbName('5%') ];
         % Loop while there is time.
         while remainingMS > 0
             elapsedMS = round((GetSecs()*10^3 - startTimeMS) );
@@ -806,13 +798,7 @@ sca
                 end
                 
                 if any(keyCode(validKeys))
-                    %if keyCode(spaceKey)
-                    keyPressed=1; %person responded!
-                    break
-                end
-            end
-            
-            %% super debug mode -- show EV for reponse times
+                    %if keyCmode -- show EV for reponse times
             %         for rt = 0:500:3500
             %             [M, F] = getScore(rt,experiment{rewardC}{i});
             %
@@ -930,9 +916,11 @@ sca
             %DrawFormattedText(w, sprintf(['You earned 0 points because you did not respond in time.\n\n' ...
             %    'Please respond before the ball goes all the way around.\n\n'...
             %    'Total points this game: %d points'], runTotals(subject.run_num)),'center','center',black);
-            
-            DrawFormattedText(w, ['You won 0 points.\n\n\n' ...
-                'Please respond before the ball goes all the way around.\n\n'],'center','center',black);
+            Screen('TextSize', w, 72);
+            DrawFormattedText(w, ['You won 0 points.\n\n' ...
+                'Please respond before\n' ...
+                'the ball goes all the way\n' ...
+                'around.\n\n'],'center','center',black);
         else
             %DrawFormattedText(w, sprintf('You won:  %d points\n\nTotal points this game: %d points', inc,runTotals(subject.run_num)),'center','center',black);
             DrawFormattedText(w, sprintf('You won\n\n%d\n\npoints', inc),'center','center',black);
