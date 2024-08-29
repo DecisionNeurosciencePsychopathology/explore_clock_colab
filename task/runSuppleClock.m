@@ -117,9 +117,6 @@ max_trial_limit = 40; %maximum trials until reversal
 
 subject.version = '2024-05-13-larger-text';
 
-if strcmp(subject.dobeh,'y')
-    %screenResolution =[1920 1080]; % DNPL Behavioral Laptop
-end
 
 %load ITI distribution for all runs.
 %NB: the .runITIs element is runs x trials in size (8 x 50)
@@ -135,11 +132,7 @@ if length(subject.runITIs) ~= length(experiment{facenumC})/2
     len_diff = (length(experiment{facenumC})/2) - length(subject.runITIs);
     ITIs_to_add = randi([0,11], [length(subject.runITI_indices), len_diff]);
     ITIs_to_add(:,end+1) = 12; %Look as itimat in fMRIOptITI's
-    if subject.dobeh % 2024-08-26 AndyP decided not to update this right now
-        subject.runITIs = [subject.runITIs(:,1:end-1) ITIs_to_add]/10;
-    else
-        subject.runITIs = [subject.runITIs(:,1:end-1) ITIs_to_add];
-    end
+    subject.runITIs = [subject.runITIs(:,1:end-1) ITIs_to_add];
 end
 
 %Reshape it
@@ -202,8 +195,8 @@ if txtfid == -1; error('couldn''t open text file for subject'); end
 if subject.run_num == 1
     fprintf(txtfid,'#Subj:\t%i\n', subject.subj_id);
     fprintf(txtfid,'#Run:\t%i\n',  subject.run_num);
-%    fprintf(txtfid,'#Age:\t%i\n',  subject.age);
-%    fprintf(txtfid,'#Gender:\t%s\n',subject.gender);
+    %    fprintf(txtfid,'#Age:\t%i\n',  subject.age);
+    %    fprintf(txtfid,'#Gender:\t%s\n',subject.gender);
     if isfield(subject, 'group_id')
         fprintf(txtfid,'#Group:\t%i\n',subject.group_id);
         fprintf(txtfid,'#Task Version:\t%s\n',subject.task_ver);
@@ -271,7 +264,7 @@ try
     % Set keys.
     spaceKey  = KbName('SPACE');
     escKey  = KbName('ESCAPE');
-    caretKey = KbName('6^'); %used for scanner trigger
+    %caretKey = KbName('6^'); %used for scanner trigger
     equalsKey = KbName('=+'); %used for scanner trigger
     
     %% preload textures
@@ -296,7 +289,7 @@ try
             'you will not win any points.\n\n' ...
             'Press space bar to continue' ...
             ];
-            
+        
     else
         second_screen=[ 'Sometimes you will win lots of points and sometimes you will win less.\n\n ' ...
             'The time at which you respond affects\n\n' ...
@@ -419,12 +412,12 @@ try
     trial_length=12.5; %This is in minutes
     %Because we want adaptive to run for 12.5 minutes
     if reversal_flag
-        time_criteria = checktime + trial_length*60;        
+        time_criteria = checktime + trial_length*60;
     else
         time_criteria = 0;
     end
     
-
+    
     
     
     %BEFORE big loop add in while loop with reversal
@@ -545,7 +538,7 @@ try
                         
                         %reverse to other contingency
                         reverse_contingency
-           
+                        
                         
                         %Remap the rest of the contingency scheme
                         experiment{rewardC}(i+jitter_length(reverse_count)+1:end)={current_contingency};
@@ -695,7 +688,7 @@ sca
                 error('quit early (on %d)\n',i)
             end
             
-            if(keyIsDown && (keyCode(caretKey) || keyCode(equalsKey))), break; end
+            if(keyIsDown && (keyCode(equalsKey))), break; end
             WaitSecs(.0005);
         end
         % change the screen to prevent key code carrying forward
@@ -798,7 +791,13 @@ sca
                 end
                 
                 if any(keyCode(validKeys))
-                    %if keyCmode -- show EV for reponse times
+                    %if keyCode(spaceKey)
+                    keyPressed=1; %person responded!
+                    break
+                end
+            end
+            
+            %% super debug mode -- show EV for reponse times
             %         for rt = 0:500:3500
             %             [M, F] = getScore(rt,experiment{rewardC}{i});
             %
