@@ -366,7 +366,8 @@ try
     fprintf('pulse flip: %.5f\n', priorFlip);
     % Grab the time right after the scanner syncs
     checktime=GetSecs();
-    
+    clock_start = clock;
+    fprintf('%s\n',datetime(clock_start));
     
     %initial fixation of 8 seconds to allow for steady state magnetization.
     %count down from 3 to 1, then a 1-second blank screen.
@@ -604,7 +605,7 @@ try
             
             % save to mat so crash can be reloaded
             trialnum=i;
-            save(filename,'order','orderfmt','trialnum','blockTrial','subject','runTotals');
+            save(filename,'order','orderfmt','trialnum','blockTrial','subject','runTotals','clock_start');
             
             blockTrial = blockTrial + 1;
             
@@ -700,6 +701,8 @@ sca
         DrawFormattedText(w, [message '\n push any key but esc\n to quit'],...
             'center','center',black);
         fprintf('%s\n',message)
+        clock_stop = clock;
+        fprintf('%s\n',datetime(clock_stop));
         Screen('Flip', w);
         waitForResponse;
         diary off;	%stop diary
