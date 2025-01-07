@@ -1,4 +1,4 @@
-                                                        % CogEmo Face Reward Task:
+% CogEmo Face Reward Task:
 %
 % This version include the reversals for the supplement study with the
 % 500ms shelves in the begginging for both IEV and DEV
@@ -366,8 +366,10 @@ try
     fprintf('pulse flip: %.5f\n', priorFlip);
     % Grab the time right after the scanner syncs
     checktime=GetSecs();
-    clock_start = clock;
-    fprintf('%s\n',datetime(clock_start));
+    start_time = clock;
+    test = datetime(start_time,'format','yyyy-MM-DD hh:mm:SS.ssss');
+    fprintf('start time: %s\n',test);
+    
     
     %initial fixation of 8 seconds to allow for steady state magnetization.
     %count down from 3 to 1, then a 1-second blank screen.
@@ -605,7 +607,7 @@ try
             
             % save to mat so crash can be reloaded
             trialnum=i;
-            save(filename,'order','orderfmt','trialnum','blockTrial','subject','runTotals','clock_start');
+            save(filename,'order','orderfmt','trialnum','blockTrial','subject','runTotals','start_time');
             
             blockTrial = blockTrial + 1;
             
@@ -701,8 +703,9 @@ sca
         DrawFormattedText(w, [message '\n push any key but esc\n to quit'],...
             'center','center',black);
         fprintf('%s\n',message)
-        clock_stop = clock;
-        fprintf('%s\n',datetime(clock_stop));
+        stop_time = clock;
+        test = datetime(stop_time,'format','yyyy-MM-DD hh:mm:SS.ssss');
+        fprintf('stop time: %s\n',test);
         Screen('Flip', w);
         waitForResponse;
         diary off;	%stop diary
